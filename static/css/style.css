@@ -1,6 +1,6 @@
 :root {
-    --background_color_dark_mode: 24,25,26;
-    --background_color_light_mode: 255,255,255;
+    --background_color_dark_mode: white;
+    --background_color_light_mode: 228,230,235;
 
     --main_color_dark_mode: 228,230,235;
     --main_color_light_mode: 24,25,26;
@@ -628,16 +628,16 @@ the number of this selector parts is our tab count limit */
     width: 100%;
     padding: 0 0 15px 0;
     }
+
+    .logo {
+        text-align: center;
+        white-space: nowrap;
+    }
 }
 
 @media screen and (max-width: 1100px) {
     .header {
         display: block;
-    }
-
-    .logo {
-        text-align: center;
-        white-space: nowrap;
     }
 
     .social_header {
