@@ -1,33 +1,46 @@
 :root {
-    --background_color_dark_mode: 24,25,26;
+    --background_color_dark_mode: 25,25,25;
     --background_color_light_mode: 255,255,255;
 
-    --main_color_dark_mode: 228,230,235;
-    --main_color_light_mode: 24,25,26;
+    --text_color_dark_mode: 219,219,219;
+    --text_color_light_mode: 255,255,255;
 
-    --container_background_dark_mode: 36,37,38;
-    --container_background_light_mode: 228,230,235;
+    --textfield_color_dark_mode: 60,60,60;
+    --textfield_color_light_mode: 178,178,178;
+
+    --container_background_dark_mode: 36,36,36;
+    --container_background_light_mode: 219,219,219;
         
-    --content_background_dark_mode: 58,59,60;
-    --content_background_light_mode: 176,179,184;
+    --content_background_dark_mode: 60,60,60;
+    --content_background_light_mode: 138,138,138;
 
     --font_color_button: 255,255,255;
+
+    --first_color: 255,41,84;
+    --second_color: 41,195,255;
+    --third_color: 255,91,41;
+    --fourth_color: 41,255,198;
+    --fifth_color: 186,123,135;
+
+    --slotalarm_logo_dark_mode: 255,255,255;
+    --slotalarm_logo_light_mode: 25,25,25;
 }
 
 body {
   background-color: rgb(var(--background_color_dark_mode));
-  color: rgb(var(--main_color_dark_mode));
+  color: rgb(var(--text_color_dark_mode));
   font-family: Verdana;
   transition: background-color 0.5s ease;
 }
 
 .light-mode {
   --background_color_dark_mode: var(--background_color_light_mode);
-  --main_color_dark_mode: var(--main_color_light_mode);
+  --text_color_dark_mode: var(--text_color_light_mode);
+  --textfield_color_dark_mode: var(--textfield_color_light_mode);
   --container_background_dark_mode: var(--container_background_light_mode);
   --container_background_dark_mode_alpha: var(--container_background_light_mode_alpha);
   --content_background_dark_mode: var(--content_background_light_mode);
-
+  --slotalarm_logo_dark_mode: var(--slotalarm_logo_light_mode);
 }
 
 a {
@@ -48,6 +61,15 @@ hr {
 
 input {
     border-bottom: 2px solid white;
+}
+
+/* SOCIAL ICONS */
+.social {
+    color: rgb(var(--slotalarm_logo_dark_mode));
+}
+
+.social:hover {
+    color: rgb(var(--third_color));
 }
 
 /* MODESWITCH START */
@@ -85,28 +107,28 @@ input {
   width: 26px;
   left: 4px;
   bottom: 4px;
-  background-color: rgb(228,230,235);
+  background-color: rgb(var(--text_color_dark_mode));
   transition: 0.4s;
   border-radius: 50%;
 }
 
 .modeswitch_input:checked + .modeswitch_slider {
-  background-color: rgb(32,206,245);
+  background-color: rgb(var(--second_color));
 }
 
 .modeswitch_input:checked + .modeswitch_slider:before {
   transform: translateX(26px);
 }
 
-/* MODESWITCH SLIDER START */
+/* MODESWITCH SLIDER END */
 
 .header {
-    display: flex;
+    display: block;
     justify-content: space-between;
     align-items: center;
     padding: 15px;
     margin-bottom: 10px;
-    border-bottom: 1px solid rgb(var(--content_background_dark_mode));
+    border-bottom: 1px solid rgb(var(--textfield_color_dark_mode));
 }
 
 .footer {
@@ -115,20 +137,26 @@ input {
     align-items: center;
     padding: 15px;
     margin-top: 10px;
-    border-top: 1px solid rgb(var(--content_background_dark_mode));
+    border-top: 1px solid rgb(var(--textfield_color_dark_mode));
 }
 
-.social_header, .social_footer  {
+.social_footer  {
     font-size: 1.5em;
+}
+
+.logo {
+    text-align: center;
+    white-space: nowrap;
 }
 
 /* SLOTALARM CI Colors */
 
 .slotalarm_logo {
     display: inline-block;
-    color: rgb(var(--main_color_dark_mode));
+    color: rgb(var(--slotalarm_logo_dark_mode));
     letter-spacing: 0.5em;
-    font-size: 30px;
+    font-size: 15px;
+    margin: 5px;
 }
 
 .slotalarm_letter {
@@ -169,12 +197,11 @@ input {
     font-size: 18px;
     font-weight: 700;
     text-transform: capitalize;
-    color: rgb(var(--font_color_button));
     height: 1em;
     padding: 10px;
     border: 0;
     border-radius: 5px;
-    background: rgb(var(--content_background_dark_mode));
+    background: rgb(var(--textfield_color_dark_mode));
 }
 
 .einzahlungsbetrag:focus {
@@ -200,15 +227,13 @@ input {
     margin: 0 10px 10px 0;
     padding: 10px;
     border-radius: 5px;
-    background: rgb(var(--content_background_dark_mode));
+    background: rgb(var(--textfield_color_dark_mode));
 }
 
 .list_icon:last-of-type {
     height: 1em;
     margin: 0 0 10px 0;
     padding: 10px;
-    border-radius: 5px;
-    background: rgb(var(--content_background_dark_mode));
 }
 
 .rank_first {
@@ -236,7 +261,7 @@ input {
 }
 
 .button {
-    background-color: rgb(255,92,161);
+    background-color: rgb(var(--third_color));
     width: 100%;
     border: none;
     border-radius: 0.5em;
@@ -249,12 +274,12 @@ input {
     font-weight: 700;
     transition-duration: 0.4s;
     cursor: pointer;
-    box-shadow: 0 4px 0 rgba(255,92,161, 0.5);
+    box-shadow: 0 4px 0 rgba(var(--third_color), 0.5);
 }
 
 .button:hover {
-    background-color: rgb(103,184,104);
-    box-shadow: 0 4px 0 rgba(103,184,104, 0.25);
+    background-color: rgb(var(--second_color));
+    box-shadow: 0 4px 0 rgba(var(--second_color), 0.25);
 }
 
 .sort_button_container {
@@ -274,6 +299,7 @@ input {
     text-transform: uppercase;
     font-size: 16px;
     font-weight: 700;
+    text-shadow: 1px 1px 1px black;
     transition-duration: 0.4s;
     cursor: pointer;
     border-bottom: 2px solid transparent;
@@ -286,28 +312,28 @@ input {
 }
 
 .sort_button:first-child {
-    background: rgb(32,206,245);
-    box-shadow: 0 4px 0 rgba(32,206,245, 0.5);
+    background: rgb(var(--first_color));
+    box-shadow: 0 4px 0 rgba(var(--first_color), 0.5);
 }
 
 .sort_button:nth-child(2) {
-    background: rgb(103,184,104);
-    box-shadow: 0 4px 0 rgba(103,184,104, 0.5);
+    background: rgb(var(--second_color));
+    box-shadow: 0 4px 0 rgba(var(--second_color), 0.5);
 }
 
 .sort_button:nth-child(3) {
-    background: rgb(212,168,140);
-    box-shadow: 0 4px 0 rgba(212,168,140, 0.5);
+    background: rgb(var(--third_color));
+    box-shadow: 0 4px 0 rgba(var(--third_color), 0.5);
 }
 
 .sort_button:nth-child(4) {
-    background: rgb(255,92,161);
-    box-shadow: 0 4px 0 rgba(255,92,161, 0.5);
+    background: rgb(var(--fourth_color));
+    box-shadow: 0 4px 0 rgba(var(--fourth_color), 0.5);
 }
 
 .sort_button:nth-child(5) {
-    background: rgb(166,149,199);
-    box-shadow: 0 4px 0 rgba(166,149,199, 0.5);
+    background: rgb(var(--fifth_color));
+    box-shadow: 0 4px 0 rgba(var(--fifth_color), 0.5);
 }
 
 .sort_button:last-child {
@@ -327,18 +353,19 @@ input {
 }
 
 .ribbon_highlight {
-  background-color: rgb(103,184,104);
+  background-color: rgb(var(--first_color));
 }
 
 .ribbon_new {
-  background-color: rgb(32,206,245);
+  background-color: rgb(var(--second_color));
 }
 
 .panel {
-  background-color: rgb(var(--content_background_dark_mode));
-  display: none;
-  overflow: hidden;
-  text-transform: capitalize;
+    background-color: rgb(var(--container_background_dark_mode));
+    display: none;
+    overflow: hidden;
+    text-transform: capitalize;
+    font-size: 15px;
 }
 
 .filter_container {
@@ -350,35 +377,38 @@ input {
 .filter_row {
     display: flex;
     align-items: center;
+    background: rgb(var(--textfield_color_dark_mode));
+    border-bottom: 1px solid rgb(var(--container_background_dark_mode));
 }
 
 .filter_checkbox {
-    width: 2em;
-    height: 2em;
+    width: 1.5em;
+    height: 1.5em;
     margin: 1em;
 }
 
 .accordion {
-  background: rgb(var(--container_background_dark_mode));
-  color: inherit;
-  border: 0;
-  border-bottom: 3px solid rgb(var(--content_background_dark_mode));
-  padding: 18px;
-  text-align: left;
-  font-size: 15px;
+    background: rgb(var(--container_background_dark_mode));
+    color: inherit;
+    border: 0;
+    border-bottom: 3px solid rgb(var(--content_background_dark_mode));
+    padding: 18px;
+    text-align: left;
+    font-size: 15px;
 }
 
 .accordion_header {
-  background: rgb(var(--content_background_dark_mode));
-  border-radius: 10px 10px 0 0;
-  padding: 18px;
-  text-align: center;
-  font-weight: 700;
+    color: rgb(var(--font_color_button));
+    background: rgb(var(--content_background_dark_mode));
+    border-radius: 10px 10px 0 0;
+    padding: 18px;
+    text-align: center;
+    font-weight: 700;
 }
 
 .accordion:last-of-type {
-  border-radius: 0 0 10px 10px;
-  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.5);
 }
 
 .active:last-of-type {
@@ -387,7 +417,8 @@ input {
 }
 
 .accordion:hover {
-  background-color: rgb(103,184,104);
+    color: rgb(var(--font_color_button));
+    background-color: rgb(var(--third_color));
 }
 
 .accordion:last-of-type + .panel {
@@ -479,37 +510,38 @@ input {
 	font-weight: 700;
 	text-transform: uppercase;
 	letter-spacing: 1px;
+    text-shadow: 1px 1px .1px black;
 	cursor: pointer;
 	transition: all 0.4s;
 }
 
 .tab:nth-child(1) {
     background: linear-gradient(to right, rgba(var(--container_background_dark_mode),1), rgba(var(--container_background_dark_mode),0) 25%),
-                linear-gradient(to bottom, rgba(32,206,245,.25), rgba(32,206,245,0));
-    border-top: 3px solid rgb(32,206,245);
+                linear-gradient(to bottom, rgba(var(--first_color),.25), rgba(var(--first_color),0));
+    border-top: 3px solid rgb(var(--first_color));
     border-right: 1px solid rgb(var(--container_background_dark_mode));
-    color: rgb(32,206,245);
+    color: rgb(var(--first_color));
 }
 
 .tab:nth-child(2) {
-    background: linear-gradient(to bottom, rgba(103,184,104,0.25), rgba(32,206,245,0));
-    border-top: 3px solid rgb(103,184,104);
+    background: linear-gradient(to bottom, rgba(var(--second_color),0.25), rgba(var(--second_color),0));
+    border-top: 3px solid rgb(var(--second_color));
     border-right: 1px solid rgb(var(--container_background_dark_mode));
-    color: rgb(103,184,104);
+    color: rgb(var(--second_color));
 }
 
 .tab:nth-child(3) {
-    background: linear-gradient(to bottom, rgba(212,168,140,0.25), rgba(32,206,245,0));
-    border-top: 3px solid rgb(212,168,140);
+    background: linear-gradient(to bottom, rgba(var(--third_color),0.25), rgba(var(--third_color),0));
+    border-top: 3px solid rgb(var(--third_color));
     border-right: 1px solid rgb(var(--container_background_dark_mode));
-    color: rgb(212,168,140);
+    color: rgb(var(--third_color));
 }
 
 .tab:nth-child(4) {
     background: linear-gradient(to left, rgba(var(--container_background_dark_mode),1), rgba(var(--container_background_dark_mode),0) 25%),
-                linear-gradient(to bottom, rgba(255,92,161,.25), rgba(255,92,161,0));
-    border-top: 3px solid rgb(255,92,161);
-    color: rgb(255,92,161);
+                linear-gradient(to bottom, rgba(var(--fourth_color),.25), rgba(var(--fourth_color),0));
+    border-top: 3px solid rgb(var(--fourth_color));
+    color: rgb(var(--fourth_color));
 }
 
 .tab:hover label {
@@ -525,7 +557,7 @@ input {
     display: flex;
     flex-wrap: wrap;
     max-width: 100%;
-    border-top: 1px solid rgb(var(--content_background_dark_mode));
+    border-top: 1px solid rgb(var(--textfield_color_dark_mode));
     margin: 10px;
     padding: 10px;
 }
@@ -537,7 +569,7 @@ input {
 
 .tab_content_3_col {
     margin: 0 10px 0 10px;
-    border-top: 1px solid rgb(var(--content_background_dark_mode));
+    border-top: 1px solid rgb(var(--textfield_color_dark_mode));
     display: flex;
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
@@ -556,7 +588,7 @@ input {
 
 .tab_content_4_col {
     margin: 0 10px 0 10px;
-    border-top: 1px solid rgb(var(--content_background_dark_mode));
+    border-top: 1px solid rgb(var(--textfield_color_dark_mode));
     display: flex;
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
@@ -589,25 +621,25 @@ the number of this selector parts is our tab count limit */
 .tabbed [type="radio"]:nth-of-type(1):checked ~ .tab-content:nth-of-type(1) {
     background: linear-gradient(to right, rgba(var(--container_background_dark_mode),1), rgba(var(--container_background_dark_mode),0) 25%),
                 linear-gradient(to left, rgba(var(--container_background_dark_mode),1), rgba(var(--container_background_dark_mode),0) 25%),
-                linear-gradient(to top, rgba(32,206,245,.1), rgba(32,206,245,0));
+                linear-gradient(to top, rgba(var(--first_color),.1), rgba(var(--first_color),0));
 }
 
 .tabbed [type="radio"]:nth-of-type(2):checked ~ .tab-content:nth-of-type(2) {
     background: linear-gradient(to right, rgba(var(--container_background_dark_mode),1), rgba(var(--container_background_dark_mode),0) 25%),
                 linear-gradient(to left, rgba(var(--container_background_dark_mode),1), rgba(var(--container_background_dark_mode),0) 25%),
-                linear-gradient(to top, rgba(103,184,104,.1), rgba(103,184,104,0));
+                linear-gradient(to top, rgba(var(--second_color),.1), rgba(var(--second_color),0));
 }
 
 .tabbed [type="radio"]:nth-of-type(3):checked ~ .tab-content:nth-of-type(3) {
     background: linear-gradient(to right, rgba(var(--container_background_dark_mode),1), rgba(var(--container_background_dark_mode),0) 25%),
                 linear-gradient(to left, rgba(var(--container_background_dark_mode),1), rgba(var(--container_background_dark_mode),0) 25%),
-                linear-gradient(to top, rgba(212,168,140,.1), rgba(212,168,140,0));
+                linear-gradient(to top, rgba(var(--third_color),.1), rgba(var(--third_color),0));
 }
 
 .tabbed [type="radio"]:nth-of-type(4):checked ~ .tab-content:nth-of-type(4) {
     background: linear-gradient(to right, rgba(var(--container_background_dark_mode),1), rgba(var(--container_background_dark_mode),0) 25%),
                 linear-gradient(to left, rgba(var(--container_background_dark_mode),1), rgba(var(--container_background_dark_mode),0) 25%),
-                linear-gradient(to top, rgba(255,92,161,.1), rgba(255,92,161,0));
+                linear-gradient(to top, rgba(var(--fourth_color),.1), rgba(var(--fourth_color),0));
 }
 
 .filter_casino, .sort_casino_created, .sort_casino_bonus, .sort_casino_bonus_wager, .sort_casino_bonus_max,
@@ -628,27 +660,10 @@ the number of this selector parts is our tab count limit */
     width: 100%;
     padding: 0 0 15px 0;
     }
+
 }
 
 @media screen and (max-width: 1100px) {
-    .header {
-        display: block;
-    }
-
-    .logo {
-        text-align: center;
-        white-space: nowrap;
-    }
-
-    .social_header {
-        display: none;
-    }
-
-    .slotalarm_logo {
-    display: inline-block;
-    letter-spacing: 0.5em;
-    font-size: 18px;
-    }
 
   .casino_list_item {
     display: block;

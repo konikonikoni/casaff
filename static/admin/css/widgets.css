@@ -41,7 +41,7 @@
 }
 
 .selector-chosen h2 {
-    background: var(--secondary);
+    background: var(--primary);
     color: var(--header-link-color);
 }
 
@@ -446,7 +446,7 @@ span.clearable-file-input label {
 }
 
 .calendar td.selected a {
-    background: var(--secondary);
+    background: var(--primary);
     color: var(--button-fg);
 }
 
@@ -533,17 +533,17 @@ span.clearable-file-input label {
     margin: 0;
     padding: 4px 0;
     font-size: 0.75rem;
-    background: var(--close-button-bg);
+    background: #eee;
     border-top: 1px solid var(--border-color);
-    color: var(--button-fg);
+    color: var(--body-fg);
 }
 
 .calendar-cancel:focus, .calendar-cancel:hover {
-    background: var(--close-button-hover-bg);
+    background: #ddd;
 }
 
 .calendar-cancel a {
-    color: var(--button-fg);
+    color: black;
     display: block;
 }
 
@@ -579,13 +579,16 @@ ul.timelist, .timelist li {
 }
 
 .related-widget-wrapper-link {
-    opacity: .6;
-    filter: grayscale(1);
+    opacity: 0.3;
 }
 
 .related-widget-wrapper-link:link {
+    opacity: .8;
+}
+
+.related-widget-wrapper-link:link:focus,
+.related-widget-wrapper-link:link:hover {
     opacity: 1;
-    filter: grayscale(0);
 }
 
 select + .related-widget-wrapper-link,
