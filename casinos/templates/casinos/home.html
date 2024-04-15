@@ -38,11 +38,13 @@
     <div class="right_container">
 
         <div id="sort_criteria" class="sort_button_container">
+            <!-- Sortieren nach Name ausgeblendet
             <button class="sort_button" data-criteria=".sort_casino_name">Name</button>
-            <button class="sort_button" data-criteria=".sort_casino_created">Neuste</button>
-            <button class="sort_button" data-criteria=".sort_casino_bonus">Bonus</button>
+            -->
+            <button class="sort_button" data-criteria=".sort_casino_created">New</button>
+            <button class="sort_button" data-criteria=".sort_casino_bonus">Best Bonus</button>
             <button class="sort_button" data-criteria=".sort_casino_bonus_max">Max Bonus</button>
-            <button class="sort_button" data-criteria=".sort_casino_bonus_wager">Wager</button>
+            <button class="sort_button" data-criteria=".sort_casino_bonus_wager">Best Wager</button>
         </div>
 
         <div class="casino_list">
@@ -62,13 +64,13 @@
                     {% endif %}
                     {% if casino.rank <= 3 %}
                         {% if casino.rank == 1 %}
-                        <span class="rank_first"><i class="fa-solid fa-award"></i></span>
+                        <span class="rank rank_first"><i class="fa-solid fa-award"></i></span>
                         {% endif %}
                         {% if casino.rank == 2 %}
-                        <span class="rank_second"><i class="fa-solid fa-award"></i></span>
+                        <span class="rank rank_second"><i class="fa-solid fa-award"></i></span>
                         {% endif %}
                         {% if casino.rank == 3 %}
-                        <span class="rank_third"><i class="fa-solid fa-award"></i></span>
+                        <span class="rank rank_third"><i class="fa-solid fa-award"></i></span>
                         {% endif %}
                     {% endif %}
                     {% if casino.highlight != None %}

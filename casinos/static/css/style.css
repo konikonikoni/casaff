@@ -16,11 +16,14 @@
 
     --font_color_button: 255,255,255;
 
-    --first_color: 255,41,84;
-    --second_color: 41,195,255;
-    --third_color: 255,91,41;
-    --fourth_color: 41,255,198;
-    --fifth_color: 186,123,135;
+    --first_color: 255,91,41;
+    --second_color: 255,166,41;
+    --third_color: 255,53,41;
+    --fourth_color: 255,128,41;
+    --fifth_color: 255,156,126;
+
+    --green_color: 41,255,126;
+    --blue_color: 41,195,255;
 
     --slotalarm_logo_dark_mode: 255,255,255;
     --slotalarm_logo_light_mode: 25,25,25;
@@ -69,7 +72,7 @@ input {
 }
 
 .social:hover {
-    color: rgb(var(--third_color));
+    color: rgb(var(--first_color));
 }
 
 /* MODESWITCH START */
@@ -113,7 +116,7 @@ input {
 }
 
 .modeswitch_input:checked + .modeswitch_slider {
-  background-color: rgb(var(--second_color));
+  background-color: rgb(var(--first_color));
 }
 
 .modeswitch_input:checked + .modeswitch_slider:before {
@@ -205,7 +208,7 @@ input {
 }
 
 .einzahlungsbetrag:focus {
-    outline: solid rgb(32,206,245);
+    outline: solid rgb(var(--first_color));
 }
 
 .casino_name {
@@ -236,32 +239,28 @@ input {
     padding: 10px;
 }
 
-.rank_first {
+.rank {
     position: absolute;
-    color: rgb(255,215,0);
     bottom: 10px;
     left: 10px;
     font-size: 2em;
+    text-shadow: 1px 1px 2px black;
+}
+
+.rank_first {
+    color: rgb(255,215,0);
 }
 
 .rank_second {
-    position: absolute;
     color: rgb(192,192,192);
-    bottom: 10px;
-    left: 10px;
-    font-size: 2em;
 }
 
 .rank_third {
-    position: absolute;
     color: rgb(205,127,50);
-    bottom: 10px;
-    left: 10px;
-    font-size: 2em;
 }
 
 .button {
-    background-color: rgb(var(--third_color));
+    background-color: rgb(var(--first_color));
     width: 100%;
     border: none;
     border-radius: 0.5em;
@@ -274,12 +273,12 @@ input {
     font-weight: 700;
     transition-duration: 0.4s;
     cursor: pointer;
-    box-shadow: 0 4px 0 rgba(var(--third_color), 0.5);
+    box-shadow: 0 4px 0 rgba(var(--first_color), 0.5);
 }
 
 .button:hover {
-    background-color: rgb(var(--second_color));
-    box-shadow: 0 4px 0 rgba(var(--second_color), 0.25);
+    background-color: rgb(var(--blue_color));
+    box-shadow: 0 4px 0 rgba(var(--blue_color), 0.25);
 }
 
 .sort_button_container {
@@ -299,7 +298,7 @@ input {
     text-transform: uppercase;
     font-size: 16px;
     font-weight: 700;
-    text-shadow: 1px 1px 1px black;
+    text-shadow: 1px 1px 2px black;
     transition-duration: 0.4s;
     cursor: pointer;
     border-bottom: 2px solid transparent;
@@ -353,11 +352,11 @@ input {
 }
 
 .ribbon_highlight {
-  background-color: rgb(var(--first_color));
+  background-color: rgb(var(--blue_color));
 }
 
 .ribbon_new {
-  background-color: rgb(var(--second_color));
+  background-color: rgb(var(--first_color));
 }
 
 .panel {
@@ -418,7 +417,7 @@ input {
 
 .accordion:hover {
     color: rgb(var(--font_color_button));
-    background-color: rgb(var(--third_color));
+    background-color: rgb(var(--first_color));
 }
 
 .accordion:last-of-type + .panel {
@@ -510,7 +509,7 @@ input {
 	font-weight: 700;
 	text-transform: uppercase;
 	letter-spacing: 1px;
-    text-shadow: 1px 1px .1px black;
+    text-shadow: 1px 1px 2px black;
 	cursor: pointer;
 	transition: all 0.4s;
 }
@@ -726,24 +725,24 @@ the number of this selector parts is our tab count limit */
     .tabbed [type="radio"]:nth-of-type(1):checked ~ .tab-content:nth-of-type(1) {
         background: linear-gradient(to top, rgba(var(--container_background_dark_mode),1), rgba(var(--container_background_dark_mode),0) 25%),
                 linear-gradient(to bottom, rgba(var(--container_background_dark_mode),1), rgba(var(--container_background_dark_mode),0) 25%),
-                linear-gradient(to right, rgba(32,206,245,.1), rgba(32,206,245,0));
+                linear-gradient(to right, rgba(var(--first_color),.1), rgba(var(--first_color),0));
     }
 
     .tabbed [type="radio"]:nth-of-type(2):checked ~ .tab-content:nth-of-type(2) {
         background: linear-gradient(to top, rgba(var(--container_background_dark_mode),1), rgba(var(--container_background_dark_mode),0) 25%),
                 linear-gradient(to bottom, rgba(var(--container_background_dark_mode),1), rgba(var(--container_background_dark_mode),0) 25%),
-                linear-gradient(to right, rgba(103,184,104,.1), rgba(103,184,104,0));
+                linear-gradient(to right, rgba(var(--second_color),.1), rgba(var(--second_color),0));
     }
 
     .tabbed [type="radio"]:nth-of-type(3):checked ~ .tab-content:nth-of-type(3) {
         background: linear-gradient(to top, rgba(var(--container_background_dark_mode),1), rgba(var(--container_background_dark_mode),0) 25%),
                 linear-gradient(to bottom, rgba(var(--container_background_dark_mode),1), rgba(var(--container_background_dark_mode),0) 25%),
-                linear-gradient(to right, rgba(212,168,140,.1), rgba(212,168,140,0));
+                linear-gradient(to right, rgba(var(--third_color),.1), rgba(var(--third_color),0));
     }
 
     .tabbed [type="radio"]:nth-of-type(4):checked ~ .tab-content:nth-of-type(4) {
         background: linear-gradient(to top, rgba(var(--container_background_dark_mode),1), rgba(var(--container_background_dark_mode),0) 25%),
                 linear-gradient(to bottom, rgba(var(--container_background_dark_mode),1), rgba(var(--container_background_dark_mode),0) 25%),
-                linear-gradient(to right, rgba(255,92,161,.1), rgba(255,92,161,0));
+                linear-gradient(to right, rgba(var(--fourth_color),.1), rgba(var(--fourth_color),0));
     }
 }
