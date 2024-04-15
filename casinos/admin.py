@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.db import models
 from adminsortable2.admin import SortableAdminMixin
-from .models import Casino, Provider, DepositMethod, BonusType, Country
+from .models import Casino, Provider, DepositMethod, BonusType, Country, SocialMedia
 
 
 @admin.register(Casino)
@@ -38,3 +38,5 @@ class SortableDepositMethod(SortableAdminMixin, admin.ModelAdmin):
 admin.site.register(BonusType)
 
 admin.site.register(Country)
+
+admin.site.register(SocialMedia)

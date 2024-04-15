@@ -3,6 +3,18 @@ from django.core.validators import FileExtensionValidator
 from datetime import datetime, timedelta, timezone
 
 # Create your models here.
+
+class SocialMedia(models.Model):
+    youtube = models.URLField(max_length=200, null=True, blank=True)
+    facebook = models.URLField(max_length=200, null=True, blank=True)
+    twitch = models.URLField(max_length=200, null=True, blank=True)
+    instagram = models.URLField(max_length=200, null=True, blank=True)
+    dlive = models.URLField(max_length=200, null=True, blank=True)
+    kick = models.URLField(max_length=200, null=True, blank=True)
+
+    def __str__(self):
+        return "Social Media Links"
+
 class Country(models.Model):
     name = models.CharField(max_length=2)
 
@@ -47,18 +59,14 @@ class Casino(models.Model):
     rank = models.PositiveIntegerField(null=True, blank=True)
     country = models.ManyToManyField(Country)
     bonus = models.CharField(max_length=10)
-    bonus_type = models.ForeignKey(BonusType, on_delete=models.SET_NULL, null=True)
+    bonus_type = models.ForeignKey(BonusType, on_delete=models.SET_NULL, null=True, blank=True)
+    bonus_code = models.CharField(max_length=20, null=True, blank=True)
     bonus_max = models.CharField(max_length=10)
     bonus_wager = models.CharField(max_length=5)
-    bonus_first_deposit = models.CharField(max_length=50, null=True, blank=True)
-    bonus_second_deposit = models.CharField(max_length=50, null=True, blank=True)
-    bonus_third_deposit = models.CharField(max_length=50, null=True, blank=True)
-    bonus_code = models.CharField(max_length=20, null=True, blank=True)
     free_spins = models.CharField(max_length=5, null=True, blank=True)
     affiliate_link = models.CharField(max_length=200, default='https://slotalarm.com')
     providers = models.ManyToManyField(Provider)
     deposit_methods = models.ManyToManyField(DepositMethod)
-    highlight = models.CharField(max_length=20, null=True, blank=True)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
 

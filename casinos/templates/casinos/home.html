@@ -33,6 +33,18 @@
 
             </div>
 
+            <button class="accordion"><i class="fa-solid fa-gift"></i> Bonusarten</button>
+            <div class="panel">
+
+                    {% for bonus_type in all_bonus_types %}
+                        <div class="filter_row">
+                        <input type="checkbox" class="filter_checkbox" value="{{ bonus_type }}">
+                        {{ bonus_type }}<br>
+                        </div>
+                    {% endfor %}
+
+            </div>
+
         </div>
     </div>
     <div class="right_container">
@@ -73,8 +85,8 @@
                         <span class="rank rank_third"><i class="fa-solid fa-award"></i></span>
                         {% endif %}
                     {% endif %}
-                    {% if casino.highlight != None %}
-                    <span class="ribbon ribbon_highlight">{{ casino.highlight }}</span>
+                    {% if casino.bonus_code != None %}
+                    <span class="ribbon ribbon_code">CODE: {{ casino.bonus_code }}</span>
                     {% elif casino.is_new %}
                     <span class="ribbon ribbon_new">NEW</span>
                     {% endif %}
@@ -97,9 +109,21 @@
                             <div class="tab_content_3_cols">
                                 <div class="tab_content_3_col">
                                     <span class="casino_bonus"><i class="fa-solid fa-gift"></i>
-                                        {{casino.bonus}}% {{casino.bonus_type}} bonus</span>
+                                        {{casino.bonus}}%
+                                        {% if casino.bonus_type == None %}
+                                        {% else %}
+                                        {{casino.bonus_type}}
+                                        {% endif %}
+                                        bonus
+                                    </span>
+
                                     <span class="casino_bonus"><i class="fa-solid fa-coins"></i>
                                         {{casino.bonus_max}}€ max bonus</span>
+                                    {% if casino.free_spins == None %}
+                                    {% else %}
+                                    <span class="casino_bonus"><i class="fa-solid fa-gamepad"></i>
+                                        {{casino.free_spins}} FS</span>
+                                    {% endif %}
                                     <span class="casino_bonus"><i class="fa-solid fa-arrows-rotate"></i>
                                         {{casino.bonus_wager}}x wager</span>
                                 </div>
@@ -174,6 +198,7 @@
                 <span class="filter_casino">
                     {% for provider in casino.sorted_providers.all %}{{ provider.name }}{% endfor %}
                     {% for method in casino.sorted_deposit_methods.all %}{{ method.name }}{% endfor %}
+                    {{ casino.bonus_type.name }}
                 </span>
             </div>
 

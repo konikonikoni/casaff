@@ -25,6 +25,10 @@
     --green_color: 41,255,126;
     --blue_color: 41,195,255;
 
+    --gold_color: 255,215,0;
+    --silver_color: 192,192,192;
+    --bronze_color: 205,127,50;
+
     --slotalarm_logo_dark_mode: 255,255,255;
     --slotalarm_logo_light_mode: 25,25,25;
 }
@@ -221,8 +225,16 @@ input {
     transform: translate(-50%, -50%);
 }
 
-.casino_bonus:nth-child(2) {
-	margin: 0 10px;
+.casino_bonus {
+	margin: 0 10px 0 0;
+}
+
+.casino_bonus:first-child {
+	margin: 0 10px 0 0;
+}
+
+.casino_bonus:last-child {
+	margin: 0;
 }
 
 .list_icon {
@@ -248,15 +260,15 @@ input {
 }
 
 .rank_first {
-    color: rgb(255,215,0);
+    color: rgb(var(--gold_color));
 }
 
 .rank_second {
-    color: rgb(192,192,192);
+    color: rgb(var(--silver_color));
 }
 
 .rank_third {
-    color: rgb(205,127,50);
+    color: rgb(var(--bronze_color));
 }
 
 .button {
@@ -301,13 +313,21 @@ input {
     text-shadow: 1px 1px 2px black;
     transition-duration: 0.4s;
     cursor: pointer;
-    border-bottom: 2px solid transparent;
+    border-bottom: 3px solid transparent;
+    position: relative;
 }
 
 .sort_button:hover,
 .sort_button:active,
 .sort_button:focus {
-    border-bottom: 2px solid rgb(var(--font_color_button)); /* Change to your desired color */
+    border-bottom: 3px solid white; /* Change to your desired color */
+}
+
+.sort_button:hover::after,
+.sort_button:active::after,
+.sort_button:focus::after {
+    content: "↓";
+    position: absolute;
 }
 
 .sort_button:first-child {
@@ -351,7 +371,7 @@ input {
   border-radius: 10px 0 10px 0;
 }
 
-.ribbon_highlight {
+.ribbon_code {
   background-color: rgb(var(--blue_color));
 }
 
@@ -394,6 +414,7 @@ input {
     padding: 18px;
     text-align: left;
     font-size: 15px;
+    text-shadow: 1px 1px 2px black;
 }
 
 .accordion_header {
@@ -432,7 +453,7 @@ input {
 .left_container {
     width: 20%;
     min-width: 250px;
-    padding: 0 15px 15px 15px;
+    padding: 0 0 15px 15px;
 }
 
 .right_container {
@@ -557,7 +578,7 @@ input {
     flex-wrap: wrap;
     max-width: 100%;
     border-top: 1px solid rgb(var(--textfield_color_dark_mode));
-    margin: 10px;
+    margin: 0 10px 0 10px;
     padding: 10px;
 }
 
@@ -576,7 +597,6 @@ input {
 }
 
 .tab_content_3_col:first-child {
-    margin: 10px 10px 0 10px;
     grid-column: span 2;
 }
 
@@ -595,7 +615,6 @@ input {
 }
 
 .tab_content_4_col:first-child {
-    margin: 10px 10px 0 10px;
     grid-column: span 3;
 }
 
@@ -646,7 +665,7 @@ the number of this selector parts is our tab count limit */
     display: none;
 }
 
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1600px) {
     .accordion {
         text-align: center;
     }
@@ -662,7 +681,7 @@ the number of this selector parts is our tab count limit */
 
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1280px) {
 
   .casino_list_item {
     display: block;
@@ -696,9 +715,14 @@ the number of this selector parts is our tab count limit */
     /* margin: 0 0 10px 0; */
   }
 
-  .casino_bonus:nth-child(2) {
-	margin: 10px 0;
-  }
+    .casino_bonus {
+        margin: 10px 0;
+    }
+
+    .casino_bonus:first-child,
+    .casino_bonus:last-child {
+        margin: 0;
+    }
 
   .sort_button {
     font-size: 12px;
