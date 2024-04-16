@@ -119,4 +119,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Media settings
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = /var/www/kennekslots/media/
+MEDIA_ROOT = '/var/www/kennekslots/media/'
