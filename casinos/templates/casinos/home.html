@@ -13,10 +13,8 @@
             <div class="panel">
 
                     {% for deposit_method in all_deposit_methods %}
-                        <div class="filter_row">
-                            <input type="checkbox" class="filter_checkbox" value="{{ deposit_method }}">
-                            {{ deposit_method }}<br>
-                        </div>
+                        <input type="checkbox" id="checkbox_{{ deposit_method }}" class="filter_checkbox" value="{{ deposit_method }}">
+                        <label for="checkbox_{{ deposit_method }}" class="filter_row">{{ deposit_method }}</label>
                     {% endfor %}
 
             </div>
@@ -25,10 +23,8 @@
             <div class="panel">
 
                     {% for provider in all_providers %}
-                        <div class="filter_row">
-                        <input type="checkbox" class="filter_checkbox" value="{{ provider }}">
-                        {{ provider }}<br>
-                        </div>
+                            <input type="checkbox" id="checkbox_{{ provider }}" class="filter_checkbox" value="{{ provider }}">
+                            <label for="checkbox_{{ provider }}" class="filter_row">{{ provider }}</label>
                     {% endfor %}
 
             </div>
@@ -37,10 +33,8 @@
             <div class="panel">
 
                     {% for bonus_type in all_bonus_types %}
-                        <div class="filter_row">
-                        <input type="checkbox" class="filter_checkbox" value="{{ bonus_type }}">
-                        {{ bonus_type }}<br>
-                        </div>
+                        <input type="checkbox" id="checkbox_{{ bonus_type }}" class="filter_checkbox" value="{{ bonus_type }}">
+                        <label for="checkbox_{{ bonus_type }}" class="filter_row">{{ bonus_type }}</label>
                     {% endfor %}
 
             </div>
