@@ -399,13 +399,7 @@ input {
     align-items: center;
     padding: .5em;
     cursor: pointer;
-    background: rgb(var(--textfield_color_dark_mode));
     border-bottom: 2px solid rgb(var(--container_background_dark_mode));
-}
-
-.filter_row:hover {
-    color: black;
-    background-color: rgb(var(--second_color)); /* Change background color on hover */
 }
 
 .filter_checkbox {
@@ -415,6 +409,16 @@ input {
 .filter_checkbox:checked + .filter_row {
     color: black;
     background-color: rgb(var(--second_color)); /* Change background color when checkbox is checked */
+}
+
+.filter_checkbox:not(:checked) + .filter_row {
+    color: inherit;
+    background: rgb(var(--textfield_color_dark_mode));
+}
+
+.filter_row:hover {
+    color: black;
+    background-color: rgb(var(--second_color));
 }
 
 .accordion {
@@ -681,12 +685,10 @@ the number of this selector parts is our tab count limit */
         flex-wrap: wrap;
     }
 
-    .filter_checkbox {
-        margin: 0 .5em 0 0;
-    }
-
     .filter_row {
         display: flex; /* Ensure the children of .filter_row are laid out in a row */
+        justify-content: center; /* Align text in the center */
+        align-items: center;
         white-space: nowrap;
         border: 3px solid rgb(var(--container_background_dark_mode));
         flex: 1; /* Each child takes up equal space */
