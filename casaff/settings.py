@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-&kd8ds#ud%^78mmii6@w9wz(v+f9r#cbbid#)8#lcmdhr4q*zj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["3.121.112.88", "127.0.0.1", "localhost"]
+ALLOWED_HOSTS = ["kennekslots.com", "www.kennekslots.com", "3.121.112.88", "127.0.0.1", "localhost"]
 
 # Application definition
 
@@ -26,7 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'adminsortable2',
-
+    'analytical'
     'casinos.apps.BaseConfig',
 ]
 
