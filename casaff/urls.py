@@ -5,8 +5,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('casinos.urls')),
-    path('', include('subpages.urls')),  # Include subpage URLs
+    path('', include('casinos.urls'))
 ]
 
 # ZEIGT KEINE MEDIA FILES AN WENN DEBUG = True
