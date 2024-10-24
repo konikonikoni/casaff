@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Casino, DepositMethod, Provider, SocialMedia, BonusType
+from .models import Casino, DepositMethod, Provider, BonusType
 
 def home(request):
     casinos = Casino.objects.all().order_by('rank')
@@ -9,11 +9,6 @@ def home(request):
     all_providers = Provider.objects.all()
     all_bonus_types = BonusType.objects.all()
 
-    # Retrieve social media links
-    try:
-        social_media_links = SocialMedia.objects.first()
-    except SocialMedia.DoesNotExist:
-        social_media_links = None
 
     for casino in casinos:
         casino.sorted_deposit_methods = casino.deposit_methods.all().order_by('rank')
@@ -26,7 +21,6 @@ def home(request):
         'all_bonus_types': all_bonus_types,
         'all_deposit_methods': all_deposit_methods,
         'all_providers': all_providers,
-        'social_media_links': social_media_links,  # Add social media links to the context
     }
     return render(request, 'casinos/home.html', context)
 

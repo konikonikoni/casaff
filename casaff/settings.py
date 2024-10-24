@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-&kd8ds#ud%^78mmii6@w9wz(v+f9r#cbbid#)8#lcmdhr4q*zj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["kennekslots.com", "www.kennekslots.com", "3.121.112.88", "127.0.0.1", "localhost"]
 
@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'adminsortable2',
     'casinos.apps.BaseConfig',
+    'subpages',
 ]
 
 MIDDLEWARE = [
@@ -108,7 +109,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/var/www/kennekslots/static/'
+# FOR LOCAL TEST
+STATIC_ROOT = '/static/'
+# FOR AWS
+# S_ROOT = '/var/www/kennekslots/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -118,4 +122,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Media settings
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = '/var/www/kennekslots/media/'
+# FOR LOCAL TEST
+MEDIA_ROOT = '/media/'
+# FOR AWS
+# MEDIA_ROOT = '/var/www/kennekslots/media/'

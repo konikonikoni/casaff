@@ -2,18 +2,6 @@ from django.db import models
 from django.core.validators import FileExtensionValidator
 from datetime import datetime, timedelta, timezone
 
-# Create your models here.
-
-class SocialMedia(models.Model):
-    youtube = models.URLField(max_length=200, null=True, blank=True)
-    facebook = models.URLField(max_length=200, null=True, blank=True)
-    twitch = models.URLField(max_length=200, null=True, blank=True)
-    instagram = models.URLField(max_length=200, null=True, blank=True)
-    dlive = models.URLField(max_length=200, null=True, blank=True)
-    kick = models.URLField(max_length=200, null=True, blank=True)
-
-    def __str__(self):
-        return "Social Media Links"
 
 class Country(models.Model):
     name = models.CharField(max_length=2)
