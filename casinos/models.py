@@ -4,6 +4,18 @@ from datetime import datetime, timedelta, timezone
 
 # Create your models here.
 
+class CasinoPageContent(models.Model):
+    welcome_text = models.TextField("Welcome Text", blank=True, help_text="Text for the welcome section")
+    info_text = models.TextField("SEO Info Text", blank=True, help_text="SEO-optimized text for the bottom of the page")
+
+    def save(self, *args, **kwargs):
+        if not self.pk and CasinoPageContent.objects.exists():
+            raise ValueError("Only one instance of CasinoPageContent is allowed.")
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return "Casino Page Content"
+
 class SocialMedia(models.Model):
     youtube = models.URLField(max_length=200, null=True, blank=True)
     facebook = models.URLField(max_length=200, null=True, blank=True)

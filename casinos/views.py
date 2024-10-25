@@ -1,20 +1,22 @@
 from django.shortcuts import render
-from .models import Casino, DepositMethod, Provider, SocialMedia, BonusType
+from .models import Casino, DepositMethod, Provider, SocialMedia, BonusType, CasinoPageContent
+
 
 def home(request):
     casinos = Casino.objects.all().order_by('rank')
 
-    # Retrieve all DepositMethods, Providers and Bonustypes instances
+    # Retrieve all DepositMethods, Providers, and Bonustypes instances
     all_deposit_methods = DepositMethod.objects.all()
     all_providers = Provider.objects.all()
     all_bonus_types = BonusType.objects.all()
 
     # Retrieve social media links
-    try:
-        social_media_links = SocialMedia.objects.first()
-    except SocialMedia.DoesNotExist:
-        social_media_links = None
+    social_media_links = SocialMedia.objects.first()
 
+    # Retrieve SEO content
+    content = CasinoPageContent.objects.first()  # Assuming a single entry
+
+    # Sorting related data within Casino instances
     for casino in casinos:
         casino.sorted_deposit_methods = casino.deposit_methods.all().order_by('rank')
         casino.sorted_providers = casino.providers.all().order_by('rank')
@@ -27,8 +29,11 @@ def home(request):
         'all_deposit_methods': all_deposit_methods,
         'all_providers': all_providers,
         'social_media_links': social_media_links,  # Add social media links to the context
+        'welcome_text': content.welcome_text if content else "",  # Retrieve welcome text
+        'info_text': content.info_text if content else "",  # Retrieve info text
     }
     return render(request, 'casinos/home.html', context)
+
 
 def casino(request, pk):
     casino = Casino.objects.get(id=pk)

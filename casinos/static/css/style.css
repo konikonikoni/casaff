@@ -10,7 +10,7 @@
 
     --container_background_dark_mode: 36,36,36;
     --container_background_light_mode: 219,219,219;
-        
+
     --content_background_dark_mode: 60,60,60;
     --content_background_light_mode: 138,138,138;
 
@@ -22,7 +22,7 @@
     --fourth_color: 255,128,41;
     --fifth_color: 255,156,126;
 
-    --green_color: 41,255,126;
+    --green_color: 0,255,50;
     --blue_color: 41,195,255;
 
     --gold_color: 255,215,0;
@@ -52,6 +52,10 @@ body {
 
 a {
     text-decoration: none;
+}
+
+p > a {
+    color: rgb(var(--first_color));
 }
 
 ul {
@@ -202,7 +206,7 @@ input {
     color: inherit;
     font-family: inherit;
     font-style: inherit;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 700;
     text-transform: capitalize;
     height: 1em;
@@ -290,8 +294,8 @@ input {
 }
 
 .button:hover {
-    background-color: rgb(var(--blue_color));
-    box-shadow: 0 4px 0 rgba(var(--blue_color), 0.25);
+    background-color: rgb(var(--green_color));
+    box-shadow: 0 4px 0 rgba(var(--green_color), 0.25);
 }
 
 .sort_button_container {
@@ -299,7 +303,7 @@ input {
     justify-content: space-between;
     height: 50px;
     align-items: center; /* Center vertically */
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
 
 .sort_button {
@@ -429,7 +433,6 @@ input {
     padding: 18px;
     text-align: left;
     font-size: 15px;
-    text-shadow: 1px 1px 2px black;
 }
 
 .accordion_header {
@@ -462,7 +465,15 @@ input {
 }
 
 .content {
+    width: 80%;
+    margin: 0 auto; /* Zentriert die gesamte .content-Box horizontal */
+}
+
+/* Casino List Centering */
+.casinos {
+    margin: 0 auto;
     display: flex;
+    justify-content: center;
 }
 
 .left_container {
@@ -486,7 +497,7 @@ input {
     justify-content: space-between;
     min-height: 175px;
     background: rgb(var(--container_background_dark_mode));
-    margin-bottom: 25px;
+    margin-bottom: 35px;
     border-radius: 10px;
     box-shadow: 0 4px 0 rgba(0, 0, 0, 0.5);
     transition: box-shadow 0.4s ease-in-out;
@@ -503,7 +514,7 @@ input {
 .casino_list_item_icon {
     grid-area: casino_list_item_icon;
     position: relative;
-    min-width: 250px;
+    min-width: 200px;
     border-radius:10px 0 0 10px;
     background-position: center;
     background-size: 90%, contain, 900%;
@@ -545,7 +556,6 @@ input {
 	font-weight: 700;
 	text-transform: uppercase;
 	letter-spacing: 1px;
-    text-shadow: 1px 1px 2px black;
 	cursor: pointer;
 	transition: all 0.4s;
 }
@@ -679,7 +689,9 @@ the number of this selector parts is our tab count limit */
     display: none;
 }
 
-@media screen and (max-width: 1600px) {
+@media screen and (max-width: 1400px) {
+    .casino_list_item {
+    }
 
     .panel {
         flex-wrap: wrap;
@@ -699,7 +711,7 @@ the number of this selector parts is our tab count limit */
         text-align: center;
     }
 
-    .content {
+    .casinos {
         display: block;
     }
 
@@ -710,7 +722,7 @@ the number of this selector parts is our tab count limit */
 
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1350px) {
 
     .casino_list_item {
         display: block;
@@ -718,6 +730,7 @@ the number of this selector parts is our tab count limit */
 
     .casino_list_item_icon {
         min-height: 150px;
+        min-width: 150px;
         border-radius: 10px 10px 0 0;
         background-size: contain, contain, 500%;
     }
@@ -767,7 +780,7 @@ the number of this selector parts is our tab count limit */
     }
 
     .tab > label {
-        font-size: 10px;
+        font-size: 8px;
     }
 
     .tab {
