@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Casino, DepositMethod, Provider, SocialMedia, BonusType, CasinoPageContent
+from .models import Casino, DepositMethod, Provider, SocialMedia, BonusType, CasinoPageContent, CasinoSpotlight
 
 
 def home(request):
@@ -16,6 +16,9 @@ def home(request):
     # Retrieve SEO content
     content = CasinoPageContent.objects.first()  # Assuming a single entry
 
+    # Retrieve the spotlight casino (if it exists)
+    spotlight = CasinoSpotlight.objects.first()
+
     # Sorting related data within Casino instances
     for casino in casinos:
         casino.sorted_deposit_methods = casino.deposit_methods.all().order_by('rank')
@@ -28,9 +31,10 @@ def home(request):
         'all_bonus_types': all_bonus_types,
         'all_deposit_methods': all_deposit_methods,
         'all_providers': all_providers,
-        'social_media_links': social_media_links,  # Add social media links to the context
+        'social_media_links': social_media_links,
         'welcome_text': content.welcome_text if content else "",  # Retrieve welcome text
         'info_text': content.info_text if content else "",  # Retrieve info text
+        'spotlight': spotlight  # Add spotlight casino to the context
     }
     return render(request, 'casinos/home.html', context)
 

@@ -36,7 +36,8 @@
 body {
     background-color: rgb(var(--background_color_dark_mode));
     color: rgb(var(--text_color_dark_mode));
-    font-family: Verdana;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", system-ui;
     transition: background-color 0.5s ease;
 }
 
@@ -45,7 +46,6 @@ body {
     --text_color_dark_mode: var(--text_color_light_mode);
     --textfield_color_dark_mode: var(--textfield_color_light_mode);
     --container_background_dark_mode: var(--container_background_light_mode);
-    --container_background_dark_mode_alpha: var(--container_background_light_mode_alpha);
     --content_background_dark_mode: var(--content_background_light_mode);
     --slotalarm_logo_dark_mode: var(--slotalarm_logo_light_mode);
 }
@@ -370,8 +370,8 @@ input {
     font-weight: 700;
     padding: 5px;
     position: absolute;
-    left: 0px;
-    top: 0px;
+    left: 0;
+    top: 0;
     text-align: center;
     border-radius: 10px 0 10px 0;
 }
@@ -490,9 +490,6 @@ input {
     flex-direction: column; /* Stack sort and casino-list vertically */
 }
 
-.casino_list {
-}
-
 .casino_list_item {
     display: flex;
     justify-content: space-between;
@@ -504,12 +501,53 @@ input {
     transition: box-shadow 0.4s ease-in-out;
 }
 
-.casino_list_item_tabs {
-    width: 100%;
+#casino_spotlight_section {
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw; /* Moves it left by half the viewport width */
+    margin-right: -50vw; /* Moves it right by half the viewport width */
+    width: 100vw; /* Forces the section to be full viewport width */
+    background-color: rgb(var(--first_color), .1); /* Example background color */
+    display: flex;
+    align-items: center; /* Centers vertically */
+    justify-content: center; /* Centers horizontally */
+    margin-bottom: 25px;
 }
 
-.casino_list_item_affiliate_link {
-    margin: 0 25px 0 25px;
+.casino_spotlight {
+    width: 80%;
+    max-width: 1300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.casino_spotlight_item {
+    display: flex;
+    width: 100%;
+    height: 150px;
+    background: rgb(var(--container_background_dark_mode));
+    border-radius: 12px;
+    border: 2px solid rgb(var(--first_color));
+    transition: box-shadow 0.4s ease-in-out;
+}
+
+.casino_spotlight_item_icon {
+    position: relative;
+    flex: 3; /* Takes 75% of the space */
+    border-radius: 10px 0 0 10px;
+    background-position: center;
+    background-size: 50%, contain, 350%;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+}
+
+.casino_spotlight_item_affiliate_link {
+    flex: 1; /* Takes 25% of the space */
+    padding: 35px 25px 35px 0;
+}
+
+.casino_list_item_tabs {
+    width: 100%;
 }
 
 .casino_list_item_icon {
@@ -526,6 +564,7 @@ input {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0 25px 0 25px;
 }
 
 .tabbed {
@@ -596,7 +635,6 @@ input {
 
 .tab_content_1_cols {
     height: 100%;
-    align-items: top; /* Center vertically */
 }
 
 .tab_content_1_col {

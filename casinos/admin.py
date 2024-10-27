@@ -1,9 +1,24 @@
 from django.contrib import admin
 from adminsortable2.admin import SortableAdminMixin
 from django.http import HttpResponseRedirect
-from .models import Casino, Provider, DepositMethod, BonusType, Country, SocialMedia, CasinoPageContent
+from .models import Casino, Provider, DepositMethod, BonusType, Country, SocialMedia, CasinoPageContent, CasinoSpotlight
 
 # Register CasinoPageContent with welcome and info fields, allowing only one instance
+@admin.register(CasinoSpotlight)
+class CasinoSpotlightAdmin(admin.ModelAdmin):
+    list_display = ('casino', 'promo_text')
+
+    def has_add_permission(self, request):
+        # Only allow one spotlight entry
+        return not CasinoSpotlight.objects.exists()
+
+    def changelist_view(self, request, extra_context=None):
+        try:
+            spotlight = CasinoSpotlight.objects.get()
+            return HttpResponseRedirect(f"/admin/casinos/casinospotlight/{spotlight.id}/change/")
+        except CasinoSpotlight.DoesNotExist:
+            return super().changelist_view(request, extra_context=extra_context)
+
 @admin.register(CasinoPageContent)
 class CasinoPageContentAdmin(admin.ModelAdmin):
     fields = ('welcome_text', 'info_text')

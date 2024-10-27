@@ -7,8 +7,52 @@
 
 <div class="content">
     <div class="welcome">
-        <p>{{ welcome_text|safe }}</p> <!-- Renders welcome text with HTML if present -->
+        {{ welcome_text|safe }} <!-- Renders welcome text with HTML if present -->
     </div>
+    {% if spotlight %}
+    <section id="casino_spotlight_section">
+        <div class="casino_spotlight">
+        <h2>Casino Spotlight {{ spotlight.casino.name }}</h2>
+        <div class="casino_spotlight_item">
+            <div class="casino_spotlight_item_icon" title="{{ spotlight.casino.name }}"
+                 {% if spotlight.casino.icon.url %}
+                 style="background-image: url('{{ spotlight.casino.icon.url }}'),
+                                      linear-gradient(to left,
+                                      rgb(var(--container_background_dark_mode)) 10%,
+                                      rgba(var(--container_background_dark_mode),0) 100%),
+                                      url('{{ spotlight.casino.icon.url }}');">
+                {% else %}
+                >
+                    <span class="casino_name">{{ spotlight.casino.name }}</span>
+                {% endif %}
+
+                {% if spotlight.casino.rank <= 3 %}
+                    {% if spotlight.casino.rank == 1 %}
+                    <span class="rank rank_first"><i class="fa-solid fa-award"></i></span>
+                    {% elif spotlight.casino.rank == 2 %}
+                    <span class="rank rank_second"><i class="fa-solid fa-award"></i></span>
+                    {% elif spotlight.casino.rank == 3 %}
+                    <span class="rank rank_third"><i class="fa-solid fa-award"></i></span>
+                    {% endif %}
+                {% endif %}
+
+                {% if spotlight.casino.bonus_code %}
+                <span class="ribbon ribbon_code">CODE: {{ spotlight.casino.bonus_code }}</span>
+                {% elif spotlight.casino.is_new %}
+                <span class="ribbon ribbon_new">NEW</span>
+                {% endif %}
+            </div>
+
+            <div class="casino_spotlight_item_affiliate_link">
+                <a href="{{ spotlight.casino.affiliate_link }}" target="_blank">
+                    <button class="button">PLAY</button>
+                </a>
+            </div>
+        </div>
+        {{ spotlight.promo_text|safe }}
+        </div>
+    </section>
+    {% endif %}
     <div class="casinos">
         <div class="left_container">
             <div class="filter_container">
@@ -210,7 +254,7 @@
         </div>
     </div>
     <div class="info">
-        <p>{{ info_text|safe }}</p> <!-- Renders info text with HTML if present -->
+        {{ info_text|safe }} <!-- Renders info text with HTML if present -->
     </div>
 </div>
 
