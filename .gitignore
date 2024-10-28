@@ -76,4 +76,5 @@ yarn-error.log
 #Ignore Static directory
 static/
 
-#Test
+#Ignore .git Folder for different post-receive file on webserver
+.git/
