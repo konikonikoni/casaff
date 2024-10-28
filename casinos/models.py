@@ -1,18 +1,18 @@
 from django.db import models
 from django.core.validators import FileExtensionValidator
-from ckeditor.fields import RichTextField  # Import RichTextField from ckeditor
+from django_ckeditor_5.fields import CKEditor5Field  # Import CKEditor5Field from django_ckeditor_5
 from datetime import datetime, timedelta, timezone
 
 class CasinoSpotlight(models.Model):
     casino = models.ForeignKey('Casino', on_delete=models.CASCADE, related_name="spotlight")
-    promo_text = RichTextField("Promotional Text", blank=True, help_text="Text for the spotlight casino")  # Changed to RichTextField for WYSIWYG
+    promo_text = CKEditor5Field("Promotional Text", blank=True, help_text="Text for the spotlight casino", config_name="default")
 
     def __str__(self):
         return f"Spotlight for {self.casino.name}"
 
 class CasinoPageContent(models.Model):
-    welcome_text = RichTextField("Welcome Text", blank=True, help_text="Text for the welcome section")  # Changed to RichTextField for WYSIWYG
-    info_text = RichTextField("SEO Info Text", blank=True, help_text="SEO-optimized text for the bottom of the page")  # Changed to RichTextField for WYSIWYG
+    welcome_text = CKEditor5Field("Welcome Text", blank=True, help_text="Text for the welcome section", config_name="default")
+    info_text = CKEditor5Field("SEO Info Text", blank=True, help_text="SEO-optimized text for the bottom of the page", config_name="default")
 
     def save(self, *args, **kwargs):
         if not self.pk and CasinoPageContent.objects.exists():

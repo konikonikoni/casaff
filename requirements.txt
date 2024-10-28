@@ -2,4 +2,4 @@ asgiref==3.8.0
 Django==5.0.4
 django-admin-sortable2==2.1.10
 sqlparse==0.4.4
-django_ckeditor==6.7.1
+django_ckeditor-5==0.2.15

@@ -6,6 +6,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('casinos.urls')),
+    path('ckeditor5/', include('django_ckeditor_5.urls')),  # Add CKEditor 5 URLs here
 ]
 
 # Serve media files during development when DEBUG = True
