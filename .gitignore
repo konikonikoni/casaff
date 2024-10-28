@@ -75,6 +75,3 @@ yarn-error.log
 
 #Ignore Static directory
 static/
-
-#Test
-.git/
